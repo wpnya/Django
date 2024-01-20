@@ -3,8 +3,8 @@ from myApp1.models import Worker
 
 
 def index_view(request):
+    # region work with db
     # Worker.objects.get(id=5).delete()
-
     # worker_to_change = Worker.objects.get(id=5)
     # worker_to_change.surname = 'Пятых'
     # worker_to_change.save()
@@ -21,10 +21,10 @@ def index_view(request):
 
     # workers_filtered = Worker.objects.filter(salary=60000)
     # print(workers_filtered)
+    # endregion
 
     all_workers = Worker.objects.all()
     return render(request, 'index.html', context={'data': all_workers})
-
 
 def profile_view(request):
     return render(request, 'web/profile.html')

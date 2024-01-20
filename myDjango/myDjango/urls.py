@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.urls import path
 import myApp1.views as views
 from django.urls import include, path
+
 # from django.contrib.auth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_view),
+    path('accounts', include("django.contrib.auth.urls")),
+    path('profile', views.profile_view)
     # path('accounts', include("django.contrib.auth.urls")),
     # path('blog/', include('blog.urls'))
 ]
