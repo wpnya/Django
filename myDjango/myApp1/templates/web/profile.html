@@ -3,12 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <title>Profile</title>
 </head>
@@ -26,7 +26,7 @@
 
             <div class="ml-3 w-100">
 
-                <h4 class="mb-0 mt-0">Alex HMorrision</h4>
+                <h4 class="mb-0 mt-0">{{ user.username }}</h4>
                 <span>Senior Journalist</span>
 
                 <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
@@ -58,8 +58,10 @@
 
                 <div class="button mt-2 d-flex flex-row align-items-center">
 
-                    <button class="btn btn-sm btn-outline-primary w-100">Chat</button>
-                    <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button>
+                    <button class="btn btn-sm btn-outline-primary w-100">Chats</button>
+                    <button class="btn btn-sm btn-primary w-100 ml-2"
+                            onclick="location.href='{% url 'logout' %}?next=/profile/'">Logout
+                    </button>
 
 
                 </div>

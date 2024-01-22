@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from myApp1.models import Worker
 
@@ -26,5 +27,7 @@ def index_view(request):
     all_workers = Worker.objects.all()
     return render(request, 'index.html', context={'data': all_workers})
 
+
+@login_required
 def profile_view(request):
     return render(request, 'web/profile.html')
