@@ -61,9 +61,10 @@
                     <button class="btn btn-sm btn-outline-primary w-100"
                             onclick="location.href = '{% url 'password_change'%}'">Change password
                     </button>
-                    <button class="btn btn-sm btn-primary w-100 ml-2"
-                            onclick="location.href='{% url 'logout' %}?next=/profile/'">Logout
-                    </button>
+                    <form method="post" action="{% url 'logout' %}?next=/profile/">
+                        {% csrf_token %}
+                        <button class="btn btn-sm btn-primary w-100 ml-2" type="submit">Logout</button>
+                    </form>
 
 
                 </div>

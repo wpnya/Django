@@ -1,8 +1,10 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordResetForm, PasswordChangeForm
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.views import PasswordResetView, PasswordChangeView
+from django.urls import reverse_lazy
 
 from .forms import CreateUserForm
 from .models import Worker
@@ -52,3 +54,13 @@ def register_view(request):
 
     context = {'form': form}
     return render(request, 'registration/register.html', context)
+
+
+class WebPasswordResetView(PasswordResetView):
+    template_name = 'web/password_reset_email.html'
+    success_url = reverse_lazy("profile")
+
+
+class WebPasswordChangeView(PasswordChangeView):
+    template_name = 'web/password_change.html'
+    success_url = reverse_lazy("profile")
