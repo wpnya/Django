@@ -19,7 +19,7 @@
 			background: #7abecc !important;
 		}
 		.user_card {
-			width: 350px;
+			width: 400px;
 			margin-top: auto;
 			margin-bottom: auto;
 			background: #74cfbf;
@@ -86,6 +86,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 
 </head>
@@ -126,7 +150,9 @@
             <p> {{form.errors}} </p>
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
-                    Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+                    <a href="{% url 'password_reset' %}" class="ml-2">Forget password? &nbsp</a>Don't have an account?<a
+                        href="{% url 'register' %}"
+                        class="ml-2">Sign Up</a>
                 </div>
 
             </div>
