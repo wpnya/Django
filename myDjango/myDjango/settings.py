@@ -119,4 +119,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = reverse_lazy("myApp1:profile")
+LOGIN_REDIRECT_URL = reverse_lazy("profile")

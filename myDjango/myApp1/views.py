@@ -1,6 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from myApp1.models import Worker
+from django.shortcuts import redirect
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+
+from .forms import CreateUserForm
+from .models import Worker
 
 
 def index_view(request):
@@ -31,3 +36,19 @@ def index_view(request):
 @login_required
 def profile_view(request):
     return render(request, 'web/profile.html')
+
+
+def register_view(request):
+    form = CreateUserForm()
+
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user)
+
+            return redirect('profile')
+
+    context = {'form': form}
+    return render(request, 'registration/register.html', context)
